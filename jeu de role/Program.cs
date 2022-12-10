@@ -51,7 +51,7 @@ namespace JDR
     {
         public string Nom { get; set; }
 
-        List<string> MaListe = new List<string> { "Epee", "Couteau" };
+        public List<string> MaListe = new List<string> { "Epee", "Couteau" };
 
         public Equipment(string nom)
         {
@@ -70,6 +70,7 @@ namespace JDR
         public int pointAttaque;
         int pointDefence;
         int initiative;
+        public Equipment equipment { get; set; }
 
         public Personnage (string nom, int pointDeVie, int pointAttaque, int pointDefence, int initiative)
         {
@@ -78,6 +79,7 @@ namespace JDR
             this.pointAttaque = pointAttaque;
             this.pointDefence = pointDefence;
             this.initiative = initiative;
+            MonEquipment = new Equipment();
         }
 
 
@@ -108,6 +110,8 @@ namespace JDR
                         monPersonnage = new List<MonPersonnage>
                         {
                              new MonPersonnage("Artas", 60, 7, 8, "Chevalier",15)
+                             
+                             
                         };
                         break;
                     }
@@ -170,7 +174,11 @@ namespace JDR
             {
                 hero.Afficher();
             }
+            // je teste juste le personnage qui obtient 1 equipment
+            //Equipment armeHero = new Equipment(" Mon Epee");
+            Console.WriteLine($"Test Ahmed pour Equipment {classeDePersonnage[0].nom} {}");
             
+
             Console.WriteLine("choisi ton personnage\n " +
                 "Appuye 1 pour le chevalier\n" +
                 "Appuye 2 pour le sorcier\n" +
