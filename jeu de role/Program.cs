@@ -174,7 +174,7 @@ namespace JDR
             {
                 hero.Afficher();
             }
-            // je teste juste le personnage qui obtient 1 equipment
+            //  je teste juste le personnage qui obtient 1 equipment
             //Equipment armeHero = new Equipment(" Mon Epee");
             Console.WriteLine($"Test Ahmed pour Equipment {classeDePersonnage[0].nom} {}");
             
