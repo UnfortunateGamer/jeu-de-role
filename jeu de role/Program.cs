@@ -46,6 +46,22 @@ namespace JDR
     }
 
 
+    //Ajout de la classe Equipment
+    class Equipment
+    {
+        public string Nom { get; set; }
+
+        List<string> MaListe = new List<string> { "Epee", "Couteau" };
+
+        public Equipment(string nom)
+        {
+            Nom = nom;
+
+        }
+    }
+
+
+      
     class Personnage
     {
 
@@ -161,6 +177,8 @@ namespace JDR
                 "Appuye 3 pour le mort vivant ");
 
             SelectionPersonnage();
+
+            
 
         }
     }
