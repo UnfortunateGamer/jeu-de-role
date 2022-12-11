@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -47,14 +47,34 @@ namespace JDR
     }
 
 
+    //Ajout de la classe Equipment
+    class Equipment
+    {
+        public string Nom { get; set; }
+
+        public List<string> MaListe = new List<string> { "Epee", "Couteau" };
+
+        public Equipment(string nom)
+        {
+            Nom = nom;
+
+        }
+    }
+
+
+      
     class Personnage
     {
 
         public string nom;
         public int pointDeVie;
         public int pointAttaque;
-        public int pointDefence;
-        public int initiative;
+
+
+        int pointDefence;
+        int initiative;
+        public Equipment equipment { get; set; }
+
 
         public Personnage (string nom, int pointDeVie, int pointAttaque, int pointDefence, int initiative)
         {
@@ -63,6 +83,9 @@ namespace JDR
             this.pointAttaque = pointAttaque;
             this.pointDefence = pointDefence;
             this.initiative = initiative;
+
+            MonEquipment = new Equipment();
+
         }
 
 
@@ -79,7 +102,11 @@ namespace JDR
 
     class Program
     {
+
         public static List<MonPersonnage> SelectionPersonnage()
+
+        static void SelectionPersonnage()
+
         {
             var monPersonnage = new List<MonPersonnage>();
 
@@ -93,6 +120,7 @@ namespace JDR
                         monPersonnage = new List<MonPersonnage>
                         {
                              new MonPersonnage("Artas", 60, 7, 8, "Chevalier",15)
+
                         };
                         break;
                     }
@@ -134,9 +162,46 @@ namespace JDR
                 //perso.Afficher();
                
             }
+
             
             return monPersonnage;
         }
+
+        }
+
+
+        static void Main(string[] args)
+        {
+
+            var classeDePersonnage = new List<Hero>
+            {
+                new Hero("Artas",60,7,8,"Chevalier",15),
+                new Hero("Dumbledor", 45, 10, 3,"Sorcier",15),
+                new Hero("Liche", 100, 5, 1,"MortViant",15)
+            };
+
+
+            var Guldan = new Monstre("Guldan", 70, 6, 0,15);
+
+            //classeDePersonnage = classeDePersonnage.Where(p => p.classe == "Chevalier").ToList();
+
+            foreach (var hero in classeDePersonnage)
+            {
+                hero.Afficher();
+            }
+            //  je teste juste le personnage qui obtient 1 equipment
+            //Equipment armeHero = new Equipment(" Mon Epee");
+            Console.WriteLine($"Test Ahmed pour Equipment {classeDePersonnage[0].nom} {}");
+            
+
+            Console.WriteLine("choisi ton personnage\n " +
+                "Appuye 1 pour le chevalier\n" +
+                "Appuye 2 pour le sorcier\n" +
+                "Appuye 3 pour le mort vivant ");
+
+            SelectionPersonnage();
+
+           
 
         public static List<Monstre> HordeMonstre()
         {
